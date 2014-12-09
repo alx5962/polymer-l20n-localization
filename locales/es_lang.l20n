@@ -1,0 +1,11 @@
+<hello "Hola">
+<welcome "{{ hello }} amigos !">
+<titleInk "Tinta">
+<emptytext "Vacío">
+<tab1 "Uno">
+<tab2 "Dos">
+<tab3 "Tres">
+<textbox1 "Esto es un texto">
+<box1 "Caja">
+
+

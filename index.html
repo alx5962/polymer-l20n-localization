@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <title>L20n Polymer</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  
+  <link rel="localization" href="localization.json">
+  
+  <script src="./components/webcomponentsjs/webcomponents.js"></script>
+  
+  <link rel="import" href="./components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="./components/paper-tabs/paper-tabs.html">
+    
+  <script src="./l20n.min.js"></script>
+  
+  <style shim-shadowdom>
+  
+    body {
+      font-family: Helvetica, Arial;
+      color: #333;
+      margin: 0;
+    }
+
+    core-toolbar {
+      background-color: #1a237e;
+      color: #fff;
+    }
+    
+    paper-tabs{
+      background-color: #ad1457;
+      color: #fff;
+    }    
+    
+    core-toolbar paper-tabs {
+      box-shadow: none;
+    }
+    
+    h3 {
+      font-size: 16px;
+      font-weight: 400;
+      background-color: #283593;
+      padding: 14px 0;
+      margin: 0;
+      text-indent: 12px;
+      color: #fff;
+     }
+    
+  </style>
+  
+</head>
+<body unresolved>
+
+  <core-toolbar>
+    <div data-l10n-id="welcome"></div>
+  </core-toolbar>
+
+
+  <h3 data-l10n-id="titleInk"></h3>
+  
+  <paper-tabs selected="0"> 
+    <paper-tab data-l10n-id="tab1"></paper-tab>
+    <paper-tab data-l10n-id="tab2"></paper-tab>
+    <paper-tab data-l10n-id="tab3"></paper-tab>
+  </paper-tabs>
+  
+  <br>
+  
+<polymer-element name="my-cell" attributes="cntloc">
+  <template> 
+  <style>
+  :host {
+    display: inline-block;
+    background: #eee;
+    box-sizing: border-box;
+    width: 120px;
+ 
+    margin: 20px 20px;    
+  }
+  .title {
+    background: #ccc;
+    height: 50px;
+    padding: 12px;
+  }  
+  </style>
+    <div class="title">{{cntloc}}</div>
+  </template>
+    <script>   
+      Polymer('my-cell', {
+        cntloc: "emptytext",          
+        ready: function() {
+          var shadowThis = this;
+          //console.log(this.shadowRoot);
+          //console.log(this);
+          //console.log(typeof document.l10n.localize);
+          document.l10n.localize([shadowThis.cntloc], function(l10n) {
+            //console.log(l10n.entities);
+            var localVal = l10n.entities[shadowThis.cntloc].value;
+            //console.log(localVal);
+            shadowThis.cntloc = localVal;
+          }); 
+        }         
+      }); 
+    </script>  
+</polymer-element>     
+  
+<my-cell cntloc="textbox1"></my-cell>  
+  
+</body>
+</html>
+

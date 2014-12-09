@@ -1,0 +1,11 @@
+<hello "Salut">
+<welcome "{{ hello }} tout le monde !">
+<titleInk "Effet d'encre">
+<emptytext "Vide">
+<tab1 "Onglet 1">
+<tab2 "Onglet 2">
+<tab3 "Onglet 3">
+<textbox1 "Ceci est un texte">
+<box1 "Boîte Une">
+
+
