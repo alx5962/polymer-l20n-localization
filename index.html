@@ -3,11 +3,8 @@
 <head>
   <title>L20n Polymer</title>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  
-  <link rel="localization" href="localization.json">
-  
+  <link rel="localization" href="localization.json">  
   <script src="./components/webcomponentsjs/webcomponents.js"></script>
-  
   <link rel="import" href="./components/core-toolbar/core-toolbar.html">
   <link rel="import" href="./components/paper-tabs/paper-tabs.html">
     
@@ -89,13 +86,8 @@
         cntloc: "emptytext",          
         ready: function() {
           var shadowThis = this;
-          //console.log(this.shadowRoot);
-          //console.log(this);
-          //console.log(typeof document.l10n.localize);
           document.l10n.localize([shadowThis.cntloc], function(l10n) {
-            //console.log(l10n.entities);
             var localVal = l10n.entities[shadowThis.cntloc].value;
-            //console.log(localVal);
             shadowThis.cntloc = localVal;
           }); 
         }         
